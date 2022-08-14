@@ -3,7 +3,7 @@ terraform {
   backend "s3" {
     profile = "default"
     region  = "us-east-1"
-    bucket  = "terraformstatefile2022"
+    bucket  = "terraformstatefile2021"
     key     = "terraformstatefile"
 
   }

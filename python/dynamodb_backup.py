@@ -10,7 +10,7 @@ def lambda_handler(event,context):
 
     log.info("Lambda {} begin execution:".format(context.function_name))
 
-    dynamodb_client.create_backup(TableName='Inventory',
+    dynamodb_client.create_backup(TableName='inventory',
                     BackupName='backupNew')
     
     log.info("Lambda finished execution succesfully")

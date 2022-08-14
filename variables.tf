@@ -4,10 +4,10 @@ variable "region" {
 }
 variable "dynamodb-table" {
   type    = string
-  default = "Inventory"
+  default = "inventory"
 }
 
 variable "schedule_expression" {
   type    = string
-  default = "rate(5 minutes)"
+  default = "rate(1 hour)"
 }

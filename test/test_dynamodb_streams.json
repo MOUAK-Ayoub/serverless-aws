@@ -1,0 +1,75 @@
+{
+    "Records": [
+        {
+            "eventID": "63eb50fc53e3d6a78329513039d977d6",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1660593140.0,
+                "Keys": {
+                    "product_id": {
+                        "S": "2"
+                    }
+                },
+                "NewImage": {
+                    "Price": {
+                        "S": "30"
+                    },
+                    "product_id": {
+                        "S": "2"
+                    },
+                    "Name": {
+                        "S": "Sugar"
+                    }
+                },
+                "SequenceNumber": "148900000000006675002829",
+                "SizeBytes": 38,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:593048217073:table/inventory/stream/2022-08-15T19:31:18.339"
+        },
+        {
+            "eventID": "2eda1db7d6a5ebfdd50686cbc2f93694",
+            "eventName": "MODIFY",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1660593140.0,
+                "Keys": {
+                    "product_id": {
+                        "S": "1"
+                    }
+                },
+                "NewImage": {
+                    "Price": {
+                        "S": "20"
+                    },
+                    "product_id": {
+                        "S": "1"
+                    },
+                    "Name": {
+                        "S": "Bread"
+                    }
+                },
+                "OldImage": {
+                    "Price": {
+                        "S": "20"
+                    },
+                    "product_id": {
+                        "S": "1"
+                    },
+                    "Name": {
+                        "S": "Milk"
+                    }
+                },
+                "SequenceNumber": "149000000000006675002831",
+                "SizeBytes": 64,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:593048217073:table/inventory/stream/2022-08-15T19:31:18.339"
+        }
+    ]
+}

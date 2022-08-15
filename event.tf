@@ -23,3 +23,10 @@ resource "aws_s3_bucket_notification" "aws-lambda-trigger-S3" {
     filter_suffix       = ".txt"
   }
 }
+
+resource "aws_lambda_event_source_mapping" "dynamodb_streams" {
+  event_source_arn  = aws_dynamodb_table.inventory-dynamodb-table.stream_arn
+  function_name     =  module.lambda_dynamodb_streams.lambda_arn
+  starting_position = "LATEST"
+  
+}

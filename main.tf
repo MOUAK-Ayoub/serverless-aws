@@ -61,6 +61,24 @@ module "lambda_api" {
 }
 
 
+module "lambda_dynamodb_streams" {
+  source = "./lambda/"
+  python_script = {
+    filename      = "./python/dynamodb_streams.py"
+    zip_name      = "./python/dynamodb_streams.zip"
+    function_name = "dynamodb_streams"
+    handler       = "dynamodb_streams.lambda_dynamodb_streams_handler"
+
+  }
+  role_lambda = {
+
+    rolename   = "role_for_lambda_dynamodb_streams"
+    policyname = "policy_for_lambda_dynamodb_streams"
+    policypath = "./policy/lambda_dynamo_streams.json"
+
+  }
+}
+
 # Permission to eventbridge to invoke lambda
 resource "aws_lambda_permission" "event-invoke" {
   statement_id  = "AllowExecutionFromCloudWatch"

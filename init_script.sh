@@ -1,1 +1,1 @@
-aws s3api create-bucket --bucket terraformstatefile2021
+aws s3api create-bucket --bucket terraformstatefile2022

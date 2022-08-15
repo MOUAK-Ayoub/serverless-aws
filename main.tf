@@ -42,6 +42,25 @@ module "lambda_s3_to_dynamodb" {
 
 }
 
+module "lambda_api" {
+  source = "./lambda/"
+  python_script = {
+    filename      = "./python/rest_dynamodb.py"
+    zip_name      = "./python/rest_dynamodb.zip"
+    function_name = "rest_dynamodb"
+    handler       = "rest_dynamodb.lambda_handler"
+
+  }
+  role_lambda = {
+
+    rolename   = "role_for_lambda_api"
+    policyname = "policy_for_lambda_api"
+    policypath = "./policy/lambda_api.json"
+
+  }
+}
+
+
 # Permission to eventbridge to invoke lambda
 resource "aws_lambda_permission" "event-invoke" {
   statement_id  = "AllowExecutionFromCloudWatch"
@@ -54,7 +73,7 @@ resource "aws_lambda_permission" "event-invoke" {
 }
 
 
-resource "aws_lambda_permission" "test" {
+resource "aws_lambda_permission" "s3-invoke" {
   statement_id  = "AllowS3Invoke"
   action        = "lambda:InvokeFunction"
   function_name = module.lambda_s3_to_dynamodb.lambda_function_name
